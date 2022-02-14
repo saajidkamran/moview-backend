@@ -1,5 +1,11 @@
 const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/moviewDB');
 
-const database= mongoose.connect('mongodb://localhost:27017/moviewDB');
+const moviewSchema = {
+    title: String,
+    content: String,
+};
 
-module.exports=database
+const moview = mongoose.model('moview', moviewSchema);
+
+module.exports = moview;

@@ -2,15 +2,16 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
+const mongoose = require('mongoose');
+
 
 //API Controllers
-const allReview = require('./controllers/get/get-all-review');
 const postReview = require('./controllers/post/post-review');
-const server = require('./config/set-server-port');
-const database = require('./config/database');
+const allReview = require('./controllers/get/get-all-review');
+const {server,port} = require('./config/set-server-port');
 
-//database connection
-database();
+
+
 
 //intializing cors & express
 app.use(cors());
@@ -23,9 +24,10 @@ app.use(
 );
 
 //fetching API
-app.route('/moview/api').get(allReview).post(postReview);
+app.route('/moview/api').get(allReview)
+.post(postReview);
 
-// initializing port
-const port = process.env.PORT || 3000;
+
+
 //connecting to server
 app.listen(port, server);

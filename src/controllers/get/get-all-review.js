@@ -1,12 +1,5 @@
-const mongoose = require('mongoose');
 const { ERROR_MESSAGES, STATUS_MESSAGES } = require('../../config/message');
-
-const moviewSchema = {
-    title: String,
-    content: String,
-};
-
-const moview = mongoose.model('moview', moviewSchema);
+const moview = require('../../config/database');
 
 const allReview = (req, res) => {
     moview.find((e, foundAticles) => {
