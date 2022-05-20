@@ -1,5 +1,5 @@
 const { ERROR_MESSAGES, STATUS_MESSAGES } = require('../../config/message');
-const moview = require('../../config/database');
+const {moview} = require('../../config/database');
 
 const allReview = (req, res) => {
     moview.find((e, foundAticles) => {

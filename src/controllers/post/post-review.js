@@ -1,5 +1,5 @@
 const { ERROR_MESSAGES, STATUS_MESSAGES } = require('../../config/message');
-const moview = require('../../config/database');
+const {moview} = require('../../config/database');
 
 const postReview = (req, res) => {
     const newMoview = new moview({
